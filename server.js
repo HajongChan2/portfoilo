@@ -5,11 +5,11 @@ const http = require('http').createServer(app);
 
 const PORT = 3000;
 
-app.use( '/', express.static( path.join(__dirname, 'portfolio/dist') )); 
+app.use( '/', express.static( path.join(__dirname, 'portfoilo/dist') )); 
 
 
 app.get('/', (req, res)=>{
-    res.sendFile(path.join(__dirname, 'portfolio/dist/index.html'));  
+    res.sendFile(path.join(__dirname, 'portfoilo/dist/index.html'));  
 })
 
 app.listen(PORT, () => {
