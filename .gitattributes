@@ -1,5 +1,2 @@
 # Auto detect text files and perform LF normalization
 * text=auto
-git rm -r --cached node_modules
-git commit -m 'Remove and ignore directory node_modules'
-git push origin master

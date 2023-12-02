@@ -40,17 +40,17 @@
           {
             img: require('../assets/addr.png'),
             title: '주소',
-            value: '서울시 강남구',
+            value: '경기도 광주시',
           },
           {
             img: require('../assets/pen.png'),
-            title: '직업',
-            value: '프론트엔드 개발자',
+            title: '학력',
+            value: '신구대학교(IT소프트웨어학과)',
           },
           {
             img: require('../assets/phone.png'),
             title: '전화번호',
-            value: '010-1234-5678',
+            value: '010-5043-3050',
           },
         ],
       };
