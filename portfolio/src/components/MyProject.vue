@@ -10,7 +10,10 @@
             </div>
             <div class="face face-back">  
                 <div class="col-10 back-container">
-                    <a class="gitLink" v-bind:href="card.git" target='_blank'>git 보러가기 -></a>
+                    <div class="Links">
+                        <a class="gitLink" v-bind:href="card.git" target='_blank'>github</a>
+                        <a class="demoLink" v-if="card.demo != ''" v-bind:href="card.demo">demo</a>
+                    </div>
                     <h4 class="backHeader">{{ card.backHeader }}</h4>
                     <p class="backContent">{{ card.backContent }}</p>
                     <div class="Period">
@@ -36,10 +39,10 @@ export default {
     data() {
         return {
             cards: [
-                { frontImage : require("@/assets/snack.png") ,git : "https://github.com/Singan/shop-project", backHeader: "snack-shop",backContent:'여러가지 스낵을 보다 저렴하게 구매할 수 있는 웹 페이지입니다.' , backPeriod : '2022-09-26 ~ 2022-12-17',backTech : 'HTML, css, Jquery, Ajax, swiper', Work : 'Ajax 비동기 통신, 회원가입 RegExp 정규표현식, swiper 이용해서 슬라이드 구성', isFlipped: false },
-                { frontImage : require('@/assets/abandog.png') ,git : "https://github.com/HajongChan2/abandoned_dog_site", backHeader: "abandog",backContent:'최근 늘어난 유기견 문제를 효율적으로 해결하기 위해 만들어진 웹 페이지입니다.' , backPeriod : '2023-03-15 ~ 2023-06-15',backTech : 'HTML, css, Jquery, Ajax, swiper, Kakao API', Work : 'Ajax 비동기 통신, Kakao API 이용하여 주소 찾기, 회원가입 RegExp 정규표현식, swiper 이용해서 슬라이드 구성', isFlipped: false },
-                { frontImage : require('@/assets/radiation.png') ,git : "https://github.com/HajongChan2/radiation", backHeader: "radiation",backContent:'최근 일본의 방사능 이슈를 위해 직관적으로 수치를 볼 수 있게 만든 웹 페이지입니다.' , backPeriod : '2023-09-19 ~ 2022-11-29',backTech : 'HTML, css, vue, axios, scss, node js, boot strap, express, mysql, socket io, dotenv', Work : 'express를 이용한 서버구축, mysql 사용, socket을 이용한 클라이언트와 통신, dotenv를 이용한 환경변수 관리, boot strap을 이용한 css', isFlipped: false },
-                { frontImage : require('@/assets/portfoilo.png') ,git : "", backHeader: "snack-shop",backContent:'저를 소개하고 기술 및 프로젝트를 보여주기 위해 만든 웹 페이지입니다.' , backPeriod : '2023-11-30 ~ 2022-12-04',backTech : 'HTML, css, vue, node js, boot strap, expess, chart js', Work : 'express를 이용한 서버구축, chart js를 이용한 그래프 그리기', isFlipped: false },
+                { frontImage : require("@/assets/snack.png") ,git : "https://github.com/Singan/shop-project", demo : '', backHeader: "snack-shop",backContent:'여러가지 스낵을 보다 저렴하게 구매할 수 있는 웹 페이지입니다.' , backPeriod : '2022-09-26 ~ 2022-12-17',backTech : 'HTML, css, Jquery, Ajax, swiper', Work : 'Ajax 비동기 통신, 회원가입 RegExp 정규표현식, swiper 이용해서 슬라이드 구성', isFlipped: false },
+                { frontImage : require('@/assets/abandog.png') ,git : "https://github.com/HajongChan2/abandoned_dog_site",demo : '', backHeader: "abandog",backContent:'최근 늘어난 유기견 문제를 효율적으로 해결하기 위해 만들어진 웹 페이지입니다.' , backPeriod : '2023-03-15 ~ 2023-06-15',backTech : 'HTML, css, Jquery, Ajax, swiper, Kakao API', Work : 'Ajax 비동기 통신, Kakao API 이용하여 주소 찾기, 회원가입 RegExp 정규표현식, swiper 이용해서 슬라이드 구성', isFlipped: false },
+                { frontImage : require('@/assets/radiation.png') ,git : "https://github.com/HajongChan2/radiation",demo : 'https://port-0-radiation-32updzt2alpie8v5q.sel5.cloudtype.app/', backHeader: "radiation",backContent:'최근 일본의 방사능 이슈를 위해 직관적으로 수치를 볼 수 있게 만든 웹 페이지입니다.' , backPeriod : '2023-09-19 ~ 2022-11-29',backTech : 'HTML, css, vue, axios, scss, node js, boot strap, express, mysql, socket io, dotenv', Work : 'express를 이용한 서버구축, mysql 사용, socket을 이용한 클라이언트와 통신, dotenv를 이용한 환경변수 관리, bootstrap을 이용한 css', isFlipped: false },
+                { frontImage : require('@/assets/portfoilo.png') ,git : "",demo : '', backHeader: "portfolio",backContent:'저를 소개하고 기술 및 프로젝트를 보여주기 위해 만든 웹 페이지입니다.' , backPeriod : '2023-11-30 ~ 2022-12-04',backTech : 'HTML, css, vue, node js, boot strap, expess, chart js', Work : 'express를 이용한 서버구축, chart js를 이용한 그래프 그리기', isFlipped: false },
             ],
         };
     },
@@ -149,16 +152,28 @@ export default {
 .back-container{
     position: relative;
 }
-.gitLink{
+.Links{
     position : absolute;
     top : 0;
     right : 0;
-    font-size: 0.8em;
-    z-index: 5;
 }
+.demoLink,
+.gitLink{
+    font-size: 0.8em;
+    border-radius: 10px;
+    padding: 3px 5px;
+    background-color: #dbd9d9;
+}
+.gitLink{
+    
+    margin-right: 5px;
+}
+
+
+.demoLink:hover,
 .gitLink:hover{
-    text-decoration: underline !important;
     transition: .2s;
+    background-color: #c3c3c3;
 }
 .backSubTitle{
     font-size: 1.0em;
