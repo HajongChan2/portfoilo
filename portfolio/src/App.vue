@@ -120,7 +120,7 @@ export default {
 }
 
 .full-height {
-  height: 120vh;
+  height: 130vh;
   transition: background-color 0.3s;
   opacity: 0.2; 
   overflow: hidden;
