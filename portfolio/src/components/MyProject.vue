@@ -185,5 +185,18 @@ export default {
     word-break: keep-all;
     font-family: Nanum Gothic,sans-serif;
 }
+@media (max-width: 820px) {
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .cards .face-front::before{
+        opacity: 0.4;
+    }
+}
+@media (max-width: 480px) {
+    .cards-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
 </style>
   

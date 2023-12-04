@@ -47,10 +47,12 @@
 .size{
     width: 100%;
     height: 100%;
+    position: relative;
 }
 .background-image {
     background-image: url("../assets/back.png");
-    background-size: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
     background-position: center 20%;
     height: 100%;
     position: relative;
@@ -85,6 +87,15 @@
   font-size: 2rem;
   animation: text-in 3s cubic-bezier(0.22, 0.15, 0.25, 1.43) 0s backwards infinite;
   color: #fff;
+}
+
+@media (max-width: 480px) {
+  .TextAnime1{
+      position : absolute;
+      top : 25%;
+      left : 5%;
+      text-align: left;
+  }
 }
 </style>
   

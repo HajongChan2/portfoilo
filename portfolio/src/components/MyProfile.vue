@@ -10,7 +10,7 @@
           </div>
         </div>
         <div class="my_info col-12">
-          <div class="info col-4" v-for="(profile, index) in profiles" :key="index">
+          <div class="info col-5" v-for="(profile, index) in profiles" :key="index">
             <img :src="profile.img" alt="">
             <div class="col-10 content_font">
               <h3 class="profileTitle">{{ profile.title }}</h3>
@@ -45,7 +45,7 @@
           {
             img: require('../assets/pen.png'),
             title: '학력',
-            value: '신구대학교(IT소프트웨어학과)',
+            value: `신구대학교(IT소프트웨어학과)`,
           },
           {
             img: require('../assets/phone.png'),
@@ -117,6 +117,28 @@
  .profileTitle,  .profileValue{
   color : #fff;
   font-weight: 500;
+  
  }
+.profileTitle{
+  font-size: 1.2em;
+}
+.profileValue{
+  font-size: 1.0em;
+}
+ @media (max-width: 820px) {
+  .info > img {
+    width: 40px;
+    height: 40px;
+  }
+}
+@media (max-width: 480px) {
+  .info > img {
+    width: 30px;
+    height: 30px;
+  }
+  .info{
+    margin : 10px 10px;
+  }
+}
   </style>
   

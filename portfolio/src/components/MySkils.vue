@@ -1,86 +1,107 @@
 <template>
-    <div class="col-10" id="skil">
-        <div class="content_header col-12">
-            <h1>Skils</h1>
+    <div class="content_header col-12" id="skill">
+        <h1>Skills</h1>
+    </div>
+    <div class="col-10">
+        <div class="col-12 MySkills" v-for="skill in skills" :key="skill.name">
+            <h5 class="col-2 skillName">{{ skill.name }}</h5>
+            <div class="skillContent">
+                <div class="skill" :style="{ width: skill.width }" @mouseover="showTooltip(skill)" @mouseleave="hideTooltip">
+                    <span>{{ skill.width }}</span>
+                </div>
+            </div>
         </div>
-        <div class="col-12 content">
-            <canvas id="front"></canvas>
-            <canvas id="back"></canvas>
-        </div>
-
     </div>
 </template>
   
 <script>
-import { Chart, registerables } from 'chart.js'; // import 추가
-
 export default {
-    mounted() {
-        this.createChart();
+    data() {
+        return {
+            skills: [
+                { name: 'HTML', width: '90%' },
+                { name: 'CSS', width: '80%' },
+                { name: 'SCSS', width: '60%' },
+                { name: 'Boot Strap', width: '70%' },
+                { name: 'JS', width: '75%' },
+                { name: 'Jquery', width: '75%' },
+                { name: 'Vue', width: '70%' },
+                { name: 'React', width: '55%' },
+                { name: 'node js', width: '50%' },
+                { name: 'PHP', width: '65%' },
+                { name: 'mysql', width: '55%' },
+            ],
+            showTooltipFlag: false,
+            hoveredSkill: null,
+        };
     },
     methods: {
-        createChart() {
-            let front = document.getElementById('front').getContext('2d');
-            let back = document.getElementById('back').getContext('2d');
-
-            Chart.register(...registerables); // 차트 유형 등록
-
-            new Chart(front, {
-                type: 'bar',
-                data: {
-                    labels: ['HTML5', 'CSS3', 'bootStrap', 'SCSS', 'JavaScript', 'jQuery', 'Vue', 'React', 'TypeScript'],
-                    datasets: [{
-                        label: 'frontend skils',
-                        backgroundColor: '#5cb6be',
-                        borderColor: '#fff',
-                        data: [90, 80, 70, 60, 70, 70, 65, 40, 35],
-                        color: '#fff',
-                    }]
-                },
-                options: {
-                    scales: {
-                        y: {
-                            max: 100, // y축의 최대값을 100으로 설정
-                        },
-                    },
-                },
-            });
-            new Chart(back, {
-                type: 'bar',
-                data: {
-                    labels: ['node.js', 'php', 'spring boot', 'express', 'mysql'],
-                    datasets: [{
-                        label: 'backend skils',
-                        backgroundColor: '#ff6384',
-                        borderColor: '#ff6384',
-                        data: [50, 45, 45, 50, 55]
-                    }]
-                },
-                options: {
-                    scales: {
-                        y: {
-                            max: 100, // y축의 최대값을 100으로 설정
-                        },
-                    },
-                },
-            });
-        }
+        showTooltip(skill) {
+            this.showTooltipFlag = true;
+            this.hoveredSkill = skill;
+        },
+        hideTooltip() {
+            this.showTooltipFlag = false;
+            this.hoveredSkill = null;
+        },
     },
-}
+};
 </script>
   
 <style>
-.content {
+.MySkills {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 35px;
 }
 
-#front,
-#back {
-    width: 80% !important;
-    height: 35vh !important;
-    margin-top: 30px;
-    font-size: 0.8em;
+.skillName {
+    color: #fff;
+    margin: 0;
+    font-size: 1.2em;
 }
+
+.skillContent,
+.skill {
+    height: 30px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.skillContent {
+    width: 100%;
+    background-color: #fff;
+}
+
+.skill {
+    border-radius: 0 15px 15px 0;
+    background-color: #63CC63;
+    opacity: 0.8;
+    margin-left: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+.skill > span {
+    position : absolute;
+    right : 20px;
+    color : #fff;
+    font-weight: bold;
+}
+.tooltipText {
+    white-space: nowrap;
+    color: #333;
+    font-size: 0.7em;
+}
+
+@media (max-width: 480px) {
+  .skillName{
+    font-size: 0.8em;
+  }
+}
+
 </style>

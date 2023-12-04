@@ -2,7 +2,7 @@ export default function ContentScroll(content) {
     if (content === 'Profile') {
       return document.getElementById('profile').offsetTop + 30;
     } else if (content == 'Skills') {
-      return document.getElementById('skil').offsetTop + 30;
+      return document.getElementById('skill').offsetTop + 30;
     }else if(content == "chan's portfolio"){
       return document.getElementsByTagName('body');
     }else if(content == 'Project'){
