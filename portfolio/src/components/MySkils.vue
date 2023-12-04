@@ -81,5 +81,6 @@ export default {
     width: 80% !important;
     height: 35vh !important;
     margin-top: 30px;
+    font-size: 0.8em;
 }
 </style>
