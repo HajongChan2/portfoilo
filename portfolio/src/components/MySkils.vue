@@ -79,7 +79,7 @@ export default {
 #front,
 #back {
     width: 80% !important;
-    height: 300px !important;
+    height: 35vh !important;
     margin-top: 30px;
 }
 </style>
