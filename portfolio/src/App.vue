@@ -131,10 +131,6 @@ export default {
   transition: opacity 0.3s ease-in-out;
 }
 
-@media (max-width: 820px) {
-  .full-height{
-    height: 120vh;
-  }
-}
+
 
 </style>
