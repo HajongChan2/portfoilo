@@ -133,12 +133,8 @@ export default {
 
 @media (max-width: 820px) {
   .full-height{
-    height: 100vh;
-  }
-}
-@media (max-width: 480px) {
-  .full-height{
     height: 120vh;
   }
 }
+
 </style>
