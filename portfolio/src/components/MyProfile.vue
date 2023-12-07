@@ -96,12 +96,13 @@
     display: flex;
     flex-wrap: wrap;
     padding-top: 50px;
+    justify-content: space-between;
   }
   
   .info {
     display: flex;
     align-items: center;
-    margin : 30px auto;
+    margin : 30px 0;
   }
   
   .info > img {
