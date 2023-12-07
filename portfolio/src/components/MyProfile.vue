@@ -9,7 +9,7 @@
             <img src="../assets/myphoto.png" alt="">
           </div>
         </div>
-        <div class="my_info col-12">
+        <div class="my_info col-10">
           <div class="info col-5" v-for="(profile, index) in profiles" :key="index">
             <img :src="profile.img" alt="">
             <div class="col-10 content_font">
