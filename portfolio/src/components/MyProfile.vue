@@ -101,7 +101,7 @@
   .info {
     display: flex;
     align-items: center;
-    margin : 30px 0;
+    margin : 30px auto;
   }
   
   .info > img {
