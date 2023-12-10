@@ -22,7 +22,7 @@ export default {
                 { name: 'HTML', width: '90%' },
                 { name: 'CSS', width: '80%' },
                 { name: 'SCSS', width: '60%' },
-                { name: 'Boot Strap', width: '70%' },
+                { name: 'BootStrap', width: '70%' },
                 { name: 'JS', width: '75%' },
                 { name: 'Jquery', width: '75%' },
                 { name: 'Vue', width: '70%' },
