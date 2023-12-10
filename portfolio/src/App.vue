@@ -8,7 +8,9 @@
       :style="{ backgroundColor: section.backgroundColor }">
       
       <component :is="section.content" />
+      
     </div>
+    <my-footer></my-footer>
   </div>
 </template>
 
@@ -20,11 +22,13 @@ import Mypage from './components/mainPage.vue';
 import MySkils from './components/MySkils.vue';
 import ContentScroll from '@/js/ContentScroll.js'
 import MyProject from '@/components/MyProject.vue';
+import MyFooter from '@/components/MyFooter.vue'
 import { markRaw } from 'vue';
 
 export default {
   components: {
     MyHeader,
+    MyFooter,
     ContentScroll,
   },
   data() {
