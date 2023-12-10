@@ -41,6 +41,7 @@ export default {
 <style>
 #navbar{
   background-color: transparent !important;
+  max-width: 1920px;
 }
 #navber-nav{
   margin-right: 0 !important;
