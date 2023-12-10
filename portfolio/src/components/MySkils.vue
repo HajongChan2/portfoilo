@@ -61,12 +61,12 @@ export default {
 .skillName {
     color: #fff;
     margin: 0;
-    font-size: 1.2em;
+    font-size: 1.0em;
 }
 
 .skillContent,
 .skill {
-    height: 30px;
+    height: 25px;
     border-radius: 5px;
     position: relative;
 }
