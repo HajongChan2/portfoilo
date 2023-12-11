@@ -11,7 +11,7 @@
             <div class="face face-back" :class="card.noneClass">  
                 <div class="col-10 back-container">
                     <div class="Links">
-                        <a class="gitLink" v-bind:href="card.git" target='_blank' v-if="card.git = ''">github</a>
+                        <a class="gitLink" v-bind:href="card.git" target='_blank' v-if="card.git != ''">github</a>
                         <a class="demoLink" v-if="card.demo != ''" v-bind:href="card.demo" target='_blank'>demo</a>
                     </div>
                     <h4 class="backHeader">{{ card.backHeader }}</h4>
