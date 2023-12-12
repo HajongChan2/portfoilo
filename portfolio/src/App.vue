@@ -5,7 +5,7 @@
     </header>
     <div v-for="(section, index) in sections" :key="index" class="full-height"
       :class="{ active: index === currentSection, 'fade-in': index === currentSection }"
-      :style="{ backgroundColor: section.backgroundColor }">
+      :style="{ backgroundColor: section.backgroundColor, padding : section.padding }">
       
       <component :is="section.content" />
       
@@ -34,7 +34,7 @@ export default {
   data() {
     return {
       sections: [
-        { content: markRaw(Mypage), backgroundColor: 'transparent' },
+        { content: markRaw(Mypage), backgroundColor: 'transparent', padding:'0px' },
         { content: markRaw(MyProfile), backgroundColor: '#3498db' },
         { content: markRaw(MySkils), backgroundColor: '#2c3e50' },
         { content: markRaw(MyProject), backgroundColor: '#7f8c8d' },
@@ -129,9 +129,7 @@ export default {
   opacity: 0.2; 
   padding: 0 0 50px 0;
 }
-.full-height:nth-child(1){
-  padding:0;
-}
+
 .fade-in {
   opacity: 1; 
   transition: opacity 0.3s ease-in-out;
