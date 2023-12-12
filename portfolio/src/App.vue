@@ -62,7 +62,7 @@ export default {
       const windowHeight = window.innerHeight;
       const scrollY = window.scrollY;
 
-      const newIndex = Math.floor((scrollY + 70) / windowHeight);
+      const newIndex = Math.floor((scrollY) / windowHeight);
       if (newIndex !== this.currentSection && newIndex < this.sections.length) {
         this.currentSection = newIndex;
         this.headerIndex = newIndex;
@@ -124,12 +124,14 @@ export default {
 }
 
 .full-height {
-  height: 130vh;
+  height: 100%;
   transition: background-color 0.3s;
   opacity: 0.2; 
-  overflow: hidden;
+  padding: 0 0 50px 0;
 }
-
+.full-height:nth-child(1){
+  padding:0;
+}
 .fade-in {
   opacity: 1; 
   transition: opacity 0.3s ease-in-out;
