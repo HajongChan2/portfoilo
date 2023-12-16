@@ -121,6 +121,7 @@ export default {
   top: 0;
   height: 60px;
   transition: .3s;
+  max-width: 1920px;
 }
 
 .full-height {
@@ -135,10 +136,5 @@ export default {
   transition: opacity 0.3s ease-in-out;
 }
 
-@media (min-width: 1921px) {
-  .full-height{
-    height: 100vh;
-  }
-}
 
 </style>
