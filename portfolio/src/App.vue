@@ -1,14 +1,14 @@
 <template>
   <div v-haeder-scroll class="main_container">
     <header class="header col-12" :style="headerBackground" @click="headerClicked">
-      <my-header :headerIndex="headerIndex" @some-event="handleChildEvent"/>
+      <my-header :headerIndex="headerIndex" @some-event="handleChildEvent" />
     </header>
     <div v-for="(section, index) in sections" :key="index" class="full-height"
       :class="{ active: index === currentSection, 'fade-in': index === currentSection }"
-      :style="{ backgroundColor: section.backgroundColor, padding : section.padding }">
-      
+      :style="{ backgroundColor: section.backgroundColor, padding: section.padding }">
+
       <component :is="section.content" />
-      
+
     </div>
     <my-footer></my-footer>
   </div>
@@ -34,15 +34,15 @@ export default {
   data() {
     return {
       sections: [
-        { content: markRaw(Mypage), backgroundColor: 'transparent', padding:'0px' },
+        { content: markRaw(Mypage), backgroundColor: 'transparent', padding: '0px' },
         { content: markRaw(MyProfile), backgroundColor: '#3498db' },
         { content: markRaw(MySkils), backgroundColor: '#2c3e50' },
         { content: markRaw(MyProject), backgroundColor: '#7f8c8d' },
       ],
       currentSection: 0,
-      headerIndex : 0,
-      headerBackground: { 'background-color': 'transparent'},
-      bodyMargin : {'margin-top' : '100px'}
+      headerIndex: 0,
+      headerBackground: { 'background-color': 'transparent' },
+      bodyMargin: { 'margin-top': '100px' }
     };
   },
 
@@ -58,20 +58,37 @@ export default {
   },
 
   methods: {
-    handleScroll() {
-      const windowHeight = window.innerHeight;
-      const scrollY = window.scrollY;
+    contentHeight() {
 
-      const newIndex = Math.floor((scrollY) / windowHeight);
-      if (newIndex !== this.currentSection && newIndex < this.sections.length) {
-        this.currentSection = newIndex;
-        this.headerIndex = newIndex;
+
+
+    },
+
+    handleScroll() {
+      const scrollY = window.scrollY + 400;
+      let profileHeight = document.querySelector("#profile").offsetTop;
+      let skillHeight = document.querySelector("#skill").offsetTop;
+      let ProjectHeight = document.querySelector("#project").offsetTop;
+      let nowScroll;
+      
+      if(scrollY >= profileHeight && scrollY <= skillHeight){
+        nowScroll = 1;
+      }else if(scrollY >= skillHeight && scrollY <= ProjectHeight){
+        nowScroll = 2;
+      }else if (scrollY >= ProjectHeight) {
+        nowScroll = 3;
+      }else{
+        nowScroll = 0;
       }
+      console.log(nowScroll, scrollY)
+      this.currentSection = nowScroll;
+      this.headerIndex = nowScroll;
+      
     },
     haederScroll() {
       const scrollY = window.scrollY;
-      this.headerBackground = scrollY >= 10 ? {'background-color': '#fff'} : {'background-color': 'transparent'};
-      
+      this.headerBackground = scrollY >= 10 ? { 'background-color': '#fff' } : { 'background-color': 'transparent' };
+
     },
     headerClicked(e) {
       const textContent = e.target.innerText;
@@ -91,7 +108,7 @@ export default {
     window.addEventListener('scroll', this.handleScroll);
     window.addEventListener('scroll', this.haederScroll);
     this.handleChildEvent;
-    
+
   },
   unmounted() {
     window.removeEventListener('scroll', this.handleScroll);
@@ -112,9 +129,11 @@ export default {
   list-style: none;
   text-decoration: none !important;
 }
-.main_container{
+
+.main_container {
   max-width: 1920px;
 }
+
 .header {
   position: fixed;
   z-index: 1;
@@ -127,14 +146,17 @@ export default {
 .full-height {
   height: 100%;
   transition: background-color 0.3s;
-  opacity: 0.2; 
+  opacity: 0.2;
   padding: 0 0 50px 0;
 }
 
 .fade-in {
-  opacity: 1; 
+  opacity: 1;
   transition: opacity 0.3s ease-in-out;
 }
-
-
+@media (min-width: 1921px) {
+  .full-height{
+    height: 100vh;
+  }
+}
 </style>
