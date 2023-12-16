@@ -80,7 +80,6 @@ export default {
       }else{
         nowScroll = 0;
       }
-      console.log(nowScroll, scrollY)
       this.currentSection = nowScroll;
       this.headerIndex = nowScroll;
       
